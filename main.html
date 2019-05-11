@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html manifest="offline.manifest">
+<head>
+	<title>Document Editor (alpha)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="webfontkit-20110609-151844/stylesheet.css" type="text/css" media="screen">
+	<script src="jscripts/strict.js" language="javascript"></script>
+	<script src="jscripts/main.js" language="javascript"></script>
+	<script src="jscripts/logout.js" language="javascript"></script><script>
+		BrowserDetect.init();
+		//document.getElementById("create_button").setAttribute("onclick","window.open('edit.html?"+localStorage.getItem('user_id')+",new','_newtab');");
+		//setInterval ("conUpdate();", 60000);showFileOffline(1);
+		setInterval ("Sync();",3000);
+		if(localStorage.getItem('database')==null){localStorageInit();}
+		if(localStorage.getItem('synched')==null){synchedInit();}
+		
+		window.applicationCache.addEventListener('updateready', function(e) {
+		  if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+			window.applicationCache.swapCache();
+			if (confirm('Software updated, we need to reload. Could we reload now?')) {
+			  window.location.reload();
+			}
+		  }
+		}, false);
+		
+		
+		window.applicationCache.addEventListener('downloading', function(e) {
+		  if (window.applicationCache.status == window.applicationCache.DOWNLOADING) {
+			/*window.applicationCache.swapCache();
+			if (confirm('A new version of this site is available. Load it?')) {
+			  window.location.reload();
+			}*/
+			//alert('Please wait, we are preparing our software so it will be ready for your computer..');
+			document.getElementById('response').innerHTML = "Please wait, we are preparing our software so it will be ready for your computer.";
+			document.getElementById('response').className = 'login_response';
+			document.getElementById('response').style.display = "block";
+		  }
+		}, false);
+	</script>
+</head>
+<body onfocus="conUpdate();showRemainingLocalStorage();" onload="conUpdate();removeDocStorage();showRemainingLocalStorage();Sync();">
+	<div class="wrapper">
+		<div class="header-container">
+			<div id="header-title" class="header-title">
+				Your Files
+			</div>
+			<div id="header-title" class="header-title">
+				<a href="http://twitter.com/home?status=Currently reading" title="Click to share this post on Twitter">Share on Twitter</a>
+			</div>
+			<!--div class="header-menu">
+				<a href="javascript:alert(decodeURIComponent(decodeURIComponent(localStorage.getItem('database'))));">Database</a>
+			</div>
+			<div class="header-menu">
+				<a href="javascript:alert(((localStorage.getItem('synched'))));">Database 2</a>
+			</div>
+			<div class="header-menu">
+				<a href="javascript:addSynched('mukanya bulet');">Add TEST</a>
+			</div>
+			<div class="header-menu">
+				<a href="javascript:deleteDocOffline('raditya');">Delete TEST</a>
+			</div-->
+			<!--div class="header-menu" style="width:150px;">
+				<a href="javascript:localStorageInit();">Clear</a>
+			</div-->
+			<div class="header-menu" style="float:right">
+				<a href="javascript:logout();">Sign Out</a>	
+			</div>
+		</div> <!-- header-container -->
+	</div> <!-- header-wrapper -->
+	<div class="wrapper">
+		<!-- Online Panel -->
+		<div id="response"></div>
+		<div class="form-container">
+			<div id="command-list" class="command-container">
+			</div>
+			<div id="file-list" class="file_list">
+			<!-- table -->
+			<!-- table -->
+			</div>
+			<div class="command-container">
+				<div class="command command_right">
+					<div id="progress_container" class="command_progress">
+						<div id="progress" style=""></div>
+					</div>
+				</div>
+				<div class="command command_right command_margin_1">
+					Storage Size
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div> <!-- form container -->
+		
+	</div> <!-- wrapper -->
+	<div class="wrapper">
+		<div class="footer-container">
+			<div class="footer-content">Raditya Arief
+				13507030
+				Teknik Informatika
+				Institut Teknologi Bandung
+			</div>
+		</div> <!-- footer-container -->
+	</div> <!-- footer-wrapper -->
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="jscripts/signup.js" language="javascript"></script>
+	<script language="JavaScript">
+	<!--
+		if(localStorage.getItem('user_id')!=null)
+		{
+			//alert('main');
+			window.location = "main.html";
+		}
+	//-->
+	//setInterval ("conLoginUpdate();", 60000);
+	</script>
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="webfontkit-20110609-151844/stylesheet.css" type="text/css" media="screen">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header-container">
+			<div class="header-title">
+				Sign Up
+			</div>
+			<div class='header-menu' style='width:150px;'>
+				<a href='main.html'>Back to Main<a>
+			</div>
+		</div>
+	</div>	
+	<div class="wrapper">
+		<div id="login_response"></div>
+		<div id="login-container" class="login-container">
+			<div class="login-form">
+				<div class="login-title">Fill Your Data</div>
+				<form onsubmit="return validateFormOnSubmit(this)" action="javascript:signup()" method="post">
+					<div class="field">
+						<label for="username">Username (5-50 Characters)</label>
+						<input type="text" name="username" id="username_signup" required autofocus/>
+					</div>
+					<div class="field">
+						<label for="password">Password (5-50 Characters)</label>
+						<input type="password" name="password" id="password_signup" required/>
+					</div>
+					<div class="field">
+						<label for="password2">Re-enter Password</label>
+						<input type="password" name="password2" id="password_signup2" required/>
+					</div>
+					<div class="field">
+						<button type="submit">Sign Up</button>
+						<div class="clear"></div>
+					</div>
+				</form>
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+	</div>
+	<div class="wrapper">
+		<div class="footer-container">
+			<div class="footer-content">Raditya Arief
+				13507030
+				Teknik Informatika
+				Institut Teknologi Bandung
+			</div>
+		</div> <!-- footer-container -->
+	</div> <!-- footer-wrapper -->	
+</body>
+</html>

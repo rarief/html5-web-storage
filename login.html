@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Document Editor (alpha)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="jscripts/login.js" language="javascript"></script>
+	<script src="jscripts/main.js" language="javascript"></script>
+	<script language="JavaScript">
+	<!--
+		if(localStorage.getItem('user_id')!=null)
+		{
+			//alert('main');
+			window.location = "main.html";
+		}
+	//-->
+	BrowserDetect.init();
+	//setInterval ("conLoginUpdate();", 60000);showFileOffline(0);
+	</script>
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="webfontkit-20110609-151844/stylesheet.css" type="text/css" media="screen">
+</head>
+<body onload="removeOLStat();removeDocStorage();showRemainingLocalStorage();">
+	<div class="wrapper">
+		<div class="header-container">
+			<div class="header-title">
+				Document Editor
+			</div>
+			<div class="header-menu">
+				<a href="singup.html">Sign Up</a>
+			</div>
+		</div>
+	</div>	
+	<div class="wrapper">
+		<div id="login_response"></div>
+		<div id="login-container" class="login-container">
+			<div class="login-form">
+				<div class="login-title">Login</div>
+				<form action="javascript:login()" method="post">
+					<div class="field">
+						<label for="username">Username</label>
+						<input type="text" name="username" id="username_login" required autofocus/>
+					</div>
+					<div class="field">
+						<label for="password">Password</label>
+						<input type="password" name="password" id="password_login" required/>
+					</div>
+					<div class="field">
+						<button type="submit">Login</button>
+						<div class="clear"></div>
+					</div>
+				</form>
+			</div>
+			<div class="login-notes">
+				<div class="login-title">Welcome</div>
+				<div class="field">
+					This site is a software of an undergraduate student's Final Project from Bandung Institute of Technology. The software is intended for academic purpose, and not intended for public use. If you got anything to ask, don't hesitate to contact me at: radit@rdt.web.id
+				</div>
+			</div>
+			<div class="login-notes">
+				<div class="login-title">What's this?</div>
+				<div class="field">
+					This software functionality is a text editor software. This software has unique ability to perform in an offline computer (not connected to the internet). The software was built to study the readiness of HTML5 offline standards which just released few years ago.
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="form-container">
+			<div class="command-container">
+				<div class="command command_margin_2">
+					<script type="text/javascript">
+						document.write('<button id=create_button class=button type=button onclick="window.open(\'edit.html?new,'+localStorage.getItem('user_id')+'\',\'_newtab\');">New Document</button>');
+					</script>
+				</div>
+				<div class="command command_right">
+					<div id="progress_container" class="command_progress">
+						<div id="progress" style=""></div>
+					</div>
+				</div>
+				<div class="command command_right command_margin_1">
+					Storage Size
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div id="file-list2">
+			<!-- table -->
+			<!-- table -->
+			</div>
+		</div> <!-- form container -->
+		
+	</div>
+	<div class="wrapper">
+		<div class="footer-container">
+			<div class="footer-content">Raditya Arief
+				13507030
+				Teknik Informatika
+				Institut Teknologi Bandung
+			</div>
+		</div> <!-- footer-container -->
+	</div> <!-- footer-wrapper -->	
+</body>
+</html>
